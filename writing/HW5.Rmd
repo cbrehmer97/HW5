@@ -21,4 +21,11 @@ homicides_raw <- read_csv("../data/homicide-data.csv")
 ```
 
 
+# Clean data
+```{r}
+homicides <- homicides_raw %>% 
+  unite(city_name, city, state, sep= ", ") %>%
+  filter(city_name == "Baltimore, MD" & reported_date != is.na(reported_date))
+```
+
 
