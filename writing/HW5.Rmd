@@ -53,6 +53,8 @@ homicides %>%
   theme(legend.title = element_blank(),
         legend.position = "bottom") +
   labs(y = "Monthly homicides", x = "Date")+
-  scale_x_date()
+  scale_x_date() +
+  geom_vline(xintercept = as.numeric(as.Date("2015-04-01")), color = "red", 
+             linetype = "dashed", size = 1)
 ```
 
