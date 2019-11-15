@@ -55,6 +55,8 @@ homicides %>%
   labs(y = "Monthly homicides", x = "Date")+
   scale_x_date() +
   geom_vline(xintercept = as.numeric(as.Date("2015-04-01")), color = "red", 
-             linetype = "dashed", size = 1)
+             linetype = "dashed", size = 1) + 
+  annotate("text", y = 40, x = as.Date("2015-02-01"), label = "Arrest of\nFreddie Gray",
+           hjust = 1, color = "white")
 ```
 
