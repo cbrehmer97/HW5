@@ -39,8 +39,11 @@ summer <- list(5,6,7,8,9,10)
 homicides <- homicides %>% 
   mutate(season = case_when(month(year_month) %in% winter ~ "Winter",
                             month(year_month) %in% summer ~"Summer"))
-
-
 ```
 
+
+# Plot
+```{r}
+
+```
 
