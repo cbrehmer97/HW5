@@ -44,6 +44,8 @@ homicides <- homicides %>%
 
 # Plot
 ```{r}
-
+homicides %>% 
+  ggplot(aes(y = n, x = year_month))+
+  geom_bar(aes(fill = season), stat = "identity")
 ```
 
