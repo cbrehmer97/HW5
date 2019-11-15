@@ -52,5 +52,7 @@ homicides %>%
   theme_dark()+
   theme(legend.title = element_blank(),
         legend.position = "bottom") +
+  labs(y = "Monthly homicides", x = "Date")+
+  scale_x_date()
 ```
 
