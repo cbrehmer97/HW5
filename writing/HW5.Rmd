@@ -49,6 +49,8 @@ homicides %>%
   geom_bar(aes(fill = season), stat = "identity") +
   geom_smooth(se = FALSE, method = "loess", span = .15) +
   scale_fill_manual(values = c("#D3D3D3","#ADD8E6")) +
-  theme_dark()
+  theme_dark()+
+  theme(legend.title = element_blank(),
+        legend.position = "bottom") +
 ```
 
