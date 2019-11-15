@@ -47,6 +47,8 @@ homicides <- homicides %>%
 homicides %>% 
   ggplot(aes(y = n, x = year_month)) +
   geom_bar(aes(fill = season), stat = "identity") +
-  geom_smooth(se = FALSE, method = "loess", span = .15)
+  geom_smooth(se = FALSE, method = "loess", span = .15) +
+  scale_fill_manual(values = c("#D3D3D3","#ADD8E6")) +
+  theme_dark()
 ```
 
