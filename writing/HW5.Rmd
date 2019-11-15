@@ -2,11 +2,13 @@
 title: "HW5"
 author: "Collin Brehmer"
 date: "11/6/2019"
-output: html_document
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=TRUE, warning=FALSE, message=FALSE}
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -42,8 +44,8 @@ homicides <- homicides %>%
 ```
 
 
-# Plot
-```{r}
+# Recreate plot
+```{r fig.height=2, fig.width=6.5, message=TRUE, warning=TRUE, dpi=300}
 homicides %>% 
   ggplot(aes(y = n, x = year_month)) +
   geom_bar(aes(fill = season), stat = "identity") +
@@ -51,12 +53,14 @@ homicides %>%
   scale_fill_manual(values = c("#D3D3D3","#ADD8E6")) +
   theme_dark()+
   theme(legend.title = element_blank(),
-        legend.position = "bottom") +
+        legend.position = "bottom",
+        text = element_text(size = 7)) +
   labs(y = "Monthly homicides", x = "Date")+
+  ggtitle("Homicides in Baltimore, MD")+
   scale_x_date() +
   geom_vline(xintercept = as.numeric(as.Date("2015-04-01")), color = "red", 
              linetype = "dashed", size = 1) + 
   annotate("text", y = 40, x = as.Date("2015-02-01"), label = "Arrest of\nFreddie Gray",
-           hjust = 1, color = "white")
+           hjust = 1, color = "white", size = 2.5)
 ```
 
