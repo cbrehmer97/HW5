@@ -25,7 +25,13 @@ homicides_raw <- read_csv("../data/homicide-data.csv")
 ```{r}
 homicides <- homicides_raw %>% 
   unite(city_name, city, state, sep= ", ") %>%
-  filter(city_name == "Baltimore, MD" & reported_date != is.na(reported_date))
+  filter(city_name == "Baltimore, MD" & reported_date != is.na(reported_date)) %>%
+  mutate(year = year(ymd(reported_date)),
+         month = month(ymd(reported_date)),
+         year_month = paste0(year, "-", month),
+         year_month = ymd(year_month, truncated = 1)) %>% 
+  group_by(year_month) %>% 
+  count()
 ```
 
 
