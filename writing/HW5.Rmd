@@ -32,6 +32,15 @@ homicides <- homicides_raw %>%
          year_month = ymd(year_month, truncated = 1)) %>% 
   group_by(year_month) %>% 
   count()
+
+winter <- list(1,2,3,4,11,12)
+summer <- list(5,6,7,8,9,10)
+
+homicides <- homicides %>% 
+  mutate(season = case_when(month(year_month) %in% winter ~ "Winter",
+                            month(year_month) %in% summer ~"Summer"))
+
+
 ```
 
 
